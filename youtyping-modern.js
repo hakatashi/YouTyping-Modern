@@ -28,8 +28,14 @@ function handleComplete() {
 	createjs.Ticker.addEventListener('tick', stage);
 }
 
-var libOpening = lib.Opening;
-lib.Opening = function () {
+function extend(target, constructor) {
+	var temp = lib[target];
+	lib[target] = constructor;
+	lib[target].prototype = temp.prototype;
+	lib[target].prototype.super = temp;
+}
+
+extend('Opening', function () {
 	var opening = this;
 	this.super.call(this, arguments);
 
@@ -45,18 +51,34 @@ lib.Opening = function () {
 		opening.selectedChanged();
 	});
 
+	var reg = Math.random() * Math.PI * 2;
+
+	this.menus.forEach(function (menu) {
+		menu.initialX = menu.x;
+		menu.initialTheta = reg;
+		reg += Math.PI * 2 / 3;
+		menu.tick = 0;
+
+		menu.on('tick', function () {
+			this.tick++;
+			this.x = this.initialX + Math.sin(this.tick / 200 + this.initialTheta) * 30;
+		});
+	});
+
 	this.selectedChanged = function () {
 		if (opening.light) opening.light.gotoAndPlay('out');
 
 		opening.light = new lib.OpeningLight();
 		var target = opening.menus[opening.selected];
-		opening.light.setTransform(target.x, target.y + 22);
+		opening.light.setTransform(target.x, target.y + 10);
+		opening.light.target = target;
+		opening.light.on('tick', function () {
+			this.setTransform(this.target.x, this.target.y + 10);
+		});
 		opening.addChild(opening.light);
 
 		stage.update();
 	};
 
 	this.selectedChanged();
-};
-lib.Opening.prototype = libOpening.prototype;
-lib.Opening.prototype.super = libOpening;
+});

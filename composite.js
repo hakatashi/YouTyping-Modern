@@ -9,6 +9,7 @@ lib.properties = {
 	fps: 60,
 	color: "#FFFFFF",
 	manifest: [
+		{src:"images/light2.jpg", id:"light2"},
 		{src:"images/opening_light.png", id:"opening_light"},
 		{src:"images/OpeningBackground.png", id:"OpeningBackground"},
 		{src:"images/OpeningLogo.png", id:"OpeningLogo"},
@@ -20,6 +21,12 @@ lib.properties = {
 
 // symbols:
 
+
+
+(lib.light2 = function() {
+	this.initialize(img.light2);
+}).prototype = p = new cjs.Bitmap();
+p.nominalBounds = new cjs.Rectangle(0,0,960,126);
 
 
 (lib.opening_light = function() {
@@ -50,59 +57,12 @@ p.nominalBounds = new cjs.Rectangle(0,0,960,540);
 	this.initialize();
 
 	// レイヤー 1
-	this.instance = new lib.opening_light();
+	this.instance = new lib.light2();
 	this.instance.setTransform(-480,-58);
 
 	this.addChild(this.instance);
 }).prototype = p = new cjs.Container();
-p.nominalBounds = new cjs.Rectangle(-480,-58,960,116);
-
-
-(lib.OpeningLightflash = function(mode,startPosition,loop) {
-if (loop == null) { loop = false; }	this.initialize(mode,startPosition,loop,{});
-
-	// timeline functions:
-	this.frame_2 = function() {
-		this.gotoAndPlay(0);
-	}
-
-	// actions tween:
-	this.timeline.addTween(cjs.Tween.get(this).wait(2).call(this.frame_2).wait(1));
-
-	// レイヤー 1
-	this.instance = new lib.OpeningLightimage();
-	this.instance.setTransform(480,58);
-
-	this.timeline.addTween(cjs.Tween.get(this.instance).wait(1).to({alpha:0.898},0).wait(1).to({alpha:1},0).wait(1));
-
-}).prototype = p = new cjs.MovieClip();
-p.nominalBounds = new cjs.Rectangle(0,0,960,116);
-
-
-(lib.OpeningLight = function(mode,startPosition,loop) {
-if (loop == null) { loop = false; }	this.initialize(mode,startPosition,loop,{"in":0,stop:2,out:3,end:5});
-
-	// timeline functions:
-	this.frame_2 = function() {
-		this.stop();
-	}
-	this.frame_5 = function() {
-		this.parent.removeChild(this);
-	}
-
-	// actions tween:
-	this.timeline.addTween(cjs.Tween.get(this).wait(2).call(this.frame_2).wait(3).call(this.frame_5).wait(1));
-
-	// レイヤー 1
-	this.instance = new lib.OpeningLightflash();
-	this.instance.setTransform(0,0,1,1,0,0,0,480,58);
-	this.instance.alpha = 0.75;
-	this.instance.compositeOperation = "lighter";
-
-	this.timeline.addTween(cjs.Tween.get(this.instance).wait(1).to({alpha:0.875},0).wait(1).to({alpha:1},0).wait(1).to({alpha:0.875},0).wait(1).to({alpha:0.75},0).to({_off:true},1).wait(1));
-
-}).prototype = p = new cjs.MovieClip();
-p.nominalBounds = new cjs.Rectangle(-480,-58,960,116);
+p.nominalBounds = new cjs.Rectangle(-480,-58,960,126);
 
 
 (lib.Opening = function() {
@@ -140,11 +100,6 @@ p.nominalBounds = new cjs.Rectangle(-480,-58,960,116);
 	this.menu1.lineWidth = 473;
 	this.menu1.setTransform(98.5,-200.9);
 
-	// openingLight
-	this.openingLight = new lib.OpeningLight();
-	this.openingLight.setTransform(101,-176.5);
-	this.openingLight.visible = false;
-
 	// OpeningLogo.png
 	this.instance = new lib.OpeningLogo();
 	this.instance.setTransform(-138,120.4);
@@ -153,12 +108,62 @@ p.nominalBounds = new cjs.Rectangle(-480,-58,960,116);
 	this.instance_1 = new lib.OpeningBackground();
 	this.instance_1.setTransform(-581,-270);
 
-	this.addChild(this.instance_1,this.instance,this.openingLight,this.menu1,this.menu2,this.menu3,this.songTitle);
+	this.addChild(this.instance_1,this.instance,this.menu1,this.menu2,this.menu3,this.songTitle);
 }).prototype = p = new cjs.Container();
-p.nominalBounds = new cjs.Rectangle(-581,-270,1162,540);
+p.nominalBounds = new cjs.Rectangle(-581,-270,960,540);
+
+
+(lib.OpeningLightflash = function(mode,startPosition,loop) {
+if (loop == null) { loop = false; }	this.initialize(mode,startPosition,loop,{});
+
+	// timeline functions:
+	this.frame_2 = function() {
+		this.gotoAndPlay(0);
+	}
+
+	// actions tween:
+	this.timeline.addTween(cjs.Tween.get(this).wait(2).call(this.frame_2).wait(1));
+
+	// レイヤー 1
+	this.instance = new lib.OpeningLightimage();
+	this.instance.setTransform(480,58);
+
+	this.timeline.addTween(cjs.Tween.get(this.instance).wait(1).to({alpha:0.898},0).wait(1).to({alpha:1},0).wait(1));
+
+}).prototype = p = new cjs.MovieClip();
+p.nominalBounds = new cjs.Rectangle(0,0,960,126);
+
+
+(lib.OpeningLight = function(mode,startPosition,loop) {
+if (loop == null) { loop = false; }	this.initialize(mode,startPosition,loop,{"in":0,stop:2,out:3,end:5});
+
+	// timeline functions:
+	this.frame_2 = function() {
+		this.stop();
+	}
+	this.frame_5 = function() {
+		this.parent.removeChild(this);
+	}
+
+	// actions tween:
+	this.timeline.addTween(cjs.Tween.get(this).wait(2).call(this.frame_2).wait(3).call(this.frame_5).wait(1));
+
+	// レイヤー 1
+	this.instance = new lib.OpeningLightflash();
+	this.instance.setTransform(0,0,1,1,0,0,0,480,58);
+	this.instance.alpha = 0.75;
+	this.instance.compositeOperation = "lighter";
+
+	this.timeline.addTween(cjs.Tween.get(this.instance).wait(1).to({regY:63,y:5,alpha:0.875},0).wait(1).to({alpha:1},0).wait(1).to({alpha:0.875},0).wait(1).to({alpha:0.75},0).to({_off:true},1).wait(1));
+
+}).prototype = p = new cjs.MovieClip();
+p.nominalBounds = new cjs.Rectangle(-480,-58,960,126);
 
 
 // stage content:
+
+
+
 (lib.composite = function(mode,startPosition,loop) {
 if (loop == null) { loop = false; }	this.initialize(mode,startPosition,loop,{opening:0,game:1});
 
@@ -168,7 +173,7 @@ if (loop == null) { loop = false; }	this.initialize(mode,startPosition,loop,{ope
 	}
 
 	// actions tween:
-	this.timeline.addTween(cjs.Tween.get(this).call(this.frame_0).wait(2));
+	this.timeline.addTween(cjs.Tween.get(this).call(this.frame_0).wait(3));
 
 	// Main
 	this.opening = new lib.Opening();
@@ -176,10 +181,13 @@ if (loop == null) { loop = false; }	this.initialize(mode,startPosition,loop,{ope
 
 	this.instance = new lib.youtypingmodern01();
 
-	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.opening}]}).to({state:[{t:this.instance}]},1).wait(1));
+	this.instance_1 = new lib.OpeningLight();
+	this.instance_1.setTransform(480,268,1,1,0,0,0,0,5);
+
+	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.opening}]}).to({state:[{t:this.instance}]},1).to({state:[{t:this.instance_1}]},1).wait(1));
 
 }).prototype = p = new cjs.MovieClip();
-p.nominalBounds = new cjs.Rectangle(480,270,1162,540);
+p.nominalBounds = new cjs.Rectangle(480,270,960,540);
 
 })(lib = lib||{}, images = images||{}, createjs = createjs||{});
 var lib, images, createjs;

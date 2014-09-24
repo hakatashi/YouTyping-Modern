@@ -7,6 +7,9 @@ function init() {
 	var loader = new createjs.LoadQueue(false);
 	loader.addEventListener('fileload', handleFileLoad);
 	loader.addEventListener('complete', handleComplete);
+	loader.addEventListener('progress', function (event) {
+		console.log(event.progress);
+	});
 	loader.loadManifest(lib.properties.manifest);
 }
 

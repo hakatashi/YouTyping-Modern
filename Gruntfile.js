@@ -2,10 +2,9 @@ module.exports = function (grunt) {
 	grunt.initConfig({
 		watch: {
 			files: [
-				'composite.js',
-				'index.html',
-				'youtyping-modern.js',
-				'youtyping-modern.css'
+				'*.js',
+				'*.html',
+				'*.css'
 			],
 			options: {
 				livereload: true

@@ -15,6 +15,7 @@ function init() {
 	});
 
 	var loader = new createjs.LoadQueue(false);
+	loader.setMaxConnections(3);
 	loader.addEventListener('fileload', handleFileLoad);
 	loader.addEventListener('complete', handleComplete);
 	var progress = 0, progressPad = 0;

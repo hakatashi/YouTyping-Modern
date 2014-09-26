@@ -47,6 +47,7 @@ function handleComplete() {
 
 	stage.addChild(composite);
 	stage.update();
+	stage.enableMouseOver();
 
 	createjs.Ticker.setFPS(lib.properties.fps);
 	createjs.Ticker.addEventListener('tick', stage);
@@ -78,21 +79,12 @@ extend('Opening', function () {
 		return false;
 	});
 	key('enter', function () {
-		switch (opening.selected) {
-			case 0:
-				opening.menu_play.gotoAndPlay('out');
-				composite.gotoAndPlay('gameStart');
-				key.unbind('up');
-				key.unbind('down');
-				key.unbind('enter');
-				break;
-		}
-		return false;
-	})
+		opening.select();
+	});
 
 	var reg = Math.random() * Math.PI * 2;
 
-	this.menus.forEach(function (menu) {
+	this.menus.forEach(function (menu, index) {
 		menu.initialX = menu.x;
 		menu.initialTheta = reg;
 		reg += Math.PI * 2 / 3;
@@ -101,6 +93,13 @@ extend('Opening', function () {
 		menu.on('tick', function () {
 			this.tick++;
 			this.x = this.initialX + Math.sin(this.tick / 200 + this.initialTheta) * 30;
+		});
+		menu.on('rollover', function () {
+			opening.selected = index;
+			opening.selectedChanged();
+		});
+		menu.on('click', function () {
+			opening.select();
 		});
 	});
 
@@ -117,6 +116,19 @@ extend('Opening', function () {
 		opening.addChild(opening.light);
 
 		stage.update();
+	};
+
+	this.select = function () {
+		switch (opening.selected) {
+			case 0:
+				opening.menu_play.gotoAndPlay('out');
+				composite.gotoAndPlay('gameStart');
+				key.unbind('up');
+				key.unbind('down');
+				key.unbind('enter');
+				break;
+		}
+		return false;
 	};
 
 	this.selectedChanged();

@@ -117,9 +117,14 @@ p.nominalBounds = new cjs.Rectangle(-480,-58,960,126);
 	this.instance = new lib.menu_exit();
 	this.instance.setTransform(-71.5,-25);
 
-	this.addChild(this.instance);
+	// ClickBounds
+	this.shape = new cjs.Shape();
+	this.shape.graphics.f("rgba(0,0,0,0.008)").s().p("AsjGFIAAsJIZIAAIAAMJg");
+	this.shape.setTransform(-1,10);
+
+	this.addChild(this.shape,this.instance);
 }).prototype = p = new cjs.Container();
-p.nominalBounds = new cjs.Rectangle(-71.5,-25,143,50);
+p.nominalBounds = new cjs.Rectangle(-81.5,-29,161,78);
 
 
 (lib.Menu_config = function() {
@@ -129,9 +134,14 @@ p.nominalBounds = new cjs.Rectangle(-71.5,-25,143,50);
 	this.instance = new lib.menu_config();
 	this.instance.setTransform(-112.5,-34);
 
-	this.addChild(this.instance);
+	// ClickBounds
+	this.shape = new cjs.Shape();
+	this.shape.graphics.f("rgba(0,0,0,0.008)").s().p("AyuGkIAAtGMAldAAAIAANGg");
+	this.shape.setTransform(1.5,-2.5);
+
+	this.addChild(this.shape,this.instance);
 }).prototype = p = new cjs.Container();
-p.nominalBounds = new cjs.Rectangle(-112.5,-34,225,68);
+p.nominalBounds = new cjs.Rectangle(-118.5,-44.5,240,84);
 
 
 (lib.OpeningLightflash = function(mode,startPosition,loop) {
@@ -206,8 +216,15 @@ if (loop == null) { loop = false; }	this.initialize(mode,startPosition,loop,{sta
 	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.instance}]}).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_1}]},1).wait(1));
 	this.timeline.addTween(cjs.Tween.get(this.instance_1).wait(1).to({_off:false},0).wait(1).to({alpha:0.5},0).wait(1).to({alpha:0},0).wait(2));
 
+	// ClickBounds
+	this.shape = new cjs.Shape();
+	this.shape.graphics.f("rgba(31,31,31,0.008)").s().p("AtbGoIAAtPIa2AAIAANPg");
+	this.shape.setTransform(-1,-0.5);
+
+	this.timeline.addTween(cjs.Tween.get(this.shape).wait(5));
+
 }).prototype = p = new cjs.MovieClip();
-p.nominalBounds = new cjs.Rectangle(-73,-34,146,68);
+p.nominalBounds = new cjs.Rectangle(-87,-42.9,172,85);
 
 
 (lib.Opening = function() {

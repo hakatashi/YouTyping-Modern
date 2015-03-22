@@ -64,7 +64,7 @@ function extend(target, constructor) {
 
 extend('Opening', function () {
 	var opening = this;
-	this.super.call(this, arguments);
+	this.super.apply(this, arguments);
 
 	this.menus = [this.menu_play, this.menu_config, this.menu_exit];
 

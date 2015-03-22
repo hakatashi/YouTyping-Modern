@@ -16,9 +16,8 @@ module.exports = function (grunt) {
 			files: {
 				src: [
 					'images/*',
-					'*.js',
-					'*.html',
-					'*.css'
+					'composite.js',
+					'composite.html',
 				],
 				dest: '../../../Documents/GitHub/YouTyping-Modern/'
 			}

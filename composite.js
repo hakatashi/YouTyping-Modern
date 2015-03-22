@@ -13,10 +13,11 @@ lib.properties = {
 		{src:"images/menu_config.png", id:"menu_config"},
 		{src:"images/menu_exit.png", id:"menu_exit"},
 		{src:"images/menu_play.png", id:"menu_play"},
-		{src:"images/opening_light.png", id:"opening_light"},
+		{src:"images/mideshi.jpg", id:"mideshi"},
+		{src:"images/notegreen01.png", id:"notegreen01"},
 		{src:"images/OpeningBackground.png", id:"OpeningBackground"},
 		{src:"images/OpeningLogo.png", id:"OpeningLogo"},
-		{src:"images/youtypingmodern01.png", id:"youtypingmodern01"}
+		{src:"images/rane01.png", id:"rane01"}
 	]
 };
 
@@ -50,10 +51,16 @@ p.nominalBounds = new cjs.Rectangle(0,0,143,50);
 p.nominalBounds = new cjs.Rectangle(0,0,146,68);
 
 
-(lib.opening_light = function() {
-	this.initialize(img.opening_light);
+(lib.mideshi = function() {
+	this.initialize(img.mideshi);
 }).prototype = p = new cjs.Bitmap();
-p.nominalBounds = new cjs.Rectangle(0,0,960,116);
+p.nominalBounds = new cjs.Rectangle(0,0,960,540);
+
+
+(lib.notegreen01 = function() {
+	this.initialize(img.notegreen01);
+}).prototype = p = new cjs.Bitmap();
+p.nominalBounds = new cjs.Rectangle(0,0,64,65);
 
 
 (lib.OpeningBackground = function() {
@@ -68,10 +75,21 @@ p.nominalBounds = new cjs.Rectangle(0,0,960,540);
 p.nominalBounds = new cjs.Rectangle(0,0,469,106);
 
 
-(lib.youtypingmodern01 = function() {
-	this.initialize(img.youtypingmodern01);
+(lib.rane01 = function() {
+	this.initialize(img.rane01);
 }).prototype = p = new cjs.Bitmap();
-p.nominalBounds = new cjs.Rectangle(0,0,960,540);
+p.nominalBounds = new cjs.Rectangle(0,0,960,163);
+
+
+(lib.シンボル4 = function() {
+	this.initialize();
+
+	// レイヤー 1
+	this.instance = new lib.rane01();
+
+	this.addChild(this.instance);
+}).prototype = p = new cjs.Container();
+p.nominalBounds = new cjs.Rectangle(0,0,960,163);
 
 
 (lib.シンボル2 = function() {
@@ -231,7 +249,13 @@ p.nominalBounds = new cjs.Rectangle(-87,-42.9,172,85);
 	this.initialize();
 
 	// ワールドイズマイン
-	this.songTitle = new cjs.Text("ワールドイズマイン", "24px 'Meiryo'", "#FFFFFF");
+	this.text = new cjs.Text("", "24px 'Meiryo'", "#0066CC");
+	this.text.textAlign = "center";
+	this.text.lineHeight = 26;
+	this.text.lineWidth = 100;
+	this.text.setTransform(415.3,309.4);
+
+	this.songTitle = new cjs.Text("とまどい→レシピ", "24px 'Meiryo'", "#FFFFFF");
 	this.songTitle.name = "songTitle";
 	this.songTitle.textAlign = "center";
 	this.songTitle.lineHeight = 26;
@@ -257,9 +281,9 @@ p.nominalBounds = new cjs.Rectangle(-87,-42.9,172,85);
 	this.instance_1 = new lib.OpeningBackground();
 	this.instance_1.setTransform(-581,-270);
 
-	this.addChild(this.instance_1,this.instance,this.menu_play,this.menu_config,this.menu_exit,this.songTitle);
+	this.addChild(this.instance_1,this.instance,this.menu_play,this.menu_config,this.menu_exit,this.songTitle,this.text);
 }).prototype = p = new cjs.Container();
-p.nominalBounds = new cjs.Rectangle(-581,-270,960,540);
+p.nominalBounds = new cjs.Rectangle(-581,-270,1050.3,619.4);
 
 
 // stage content:
@@ -270,20 +294,46 @@ if (loop == null) { loop = false; }	this.initialize(mode,startPosition,loop,{ope
 	this.frame_0 = function() {
 		this.stop();
 	}
-	this.frame_31 = function() {
+	this.frame_50 = function() {
 		this.stop();
 	}
 
 	// actions tween:
-	this.timeline.addTween(cjs.Tween.get(this).call(this.frame_0).wait(31).call(this.frame_31).wait(2));
+	this.timeline.addTween(cjs.Tween.get(this).call(this.frame_0).wait(50).call(this.frame_50).wait(2));
 
-	// CoverAnimate
-	this.instance = new lib.シンボル2();
-	this.instance.setTransform(480,270,1,1,0,0,0,480,270);
-	this.instance.alpha = 0;
+	// レイヤー 3 (mask)
+	var mask = new cjs.Shape();
+	mask._off = true;
+	var mask_graphics_39 = new cjs.Graphics().p("EAtPAoVMAAAg9IMBDYAAAMAAAA9Ig");
+	var mask_graphics_40 = new cjs.Graphics().p("EgIaAoVMAAAg9IMB5BAAAMAAAA9Ig");
+	var mask_graphics_41 = new cjs.Graphics().p("EgpiAoVMAAAg9IMCaJAAAMAAAA9Ig");
+	var mask_graphics_42 = new cjs.Graphics().p("Eg+qAoVMAAAg9IMCvRAAAMAAAA9Ig");
+	var mask_graphics_43 = new cjs.Graphics().p("EhNnAoVMAAAg9IMC+OAAAMAAAA9Ig");
+	var mask_graphics_44 = new cjs.Graphics().p("EhZ4AoVMAAAg9IMDKfAAAMAAAA9Ig");
+	var mask_graphics_45 = new cjs.Graphics().p("EhlSAoVMAAAg9IMDV5AAAMAAAA9Ig");
+	var mask_graphics_46 = new cjs.Graphics().p("EhwlAoVMAAAg9IMDhMAAAMAAAA9Ig");
+	var mask_graphics_47 = new cjs.Graphics().p("EhwmAoVMAAAg9IMDhNAAAMAAAA9Ig");
+	var mask_graphics_48 = new cjs.Graphics().p("EhwmAoVMAAAg9IMDhNAAAMAAAA9Ig");
+	var mask_graphics_49 = new cjs.Graphics().p("EhwmAoVMAAAg9IMDhNAAAMAAAA9Ig");
+
+	this.timeline.addTween(cjs.Tween.get(mask).to({graphics:null,x:0,y:0}).wait(39).to({graphics:mask_graphics_39,x:720.8,y:258.1}).wait(1).to({graphics:mask_graphics_40,x:720.8,y:258.1}).wait(1).to({graphics:mask_graphics_41,x:720.8,y:258.1}).wait(1).to({graphics:mask_graphics_42,x:720.8,y:258.1}).wait(1).to({graphics:mask_graphics_43,x:720.8,y:258.1}).wait(1).to({graphics:mask_graphics_44,x:720.8,y:258.1}).wait(1).to({graphics:mask_graphics_45,x:720.8,y:258.1}).wait(1).to({graphics:mask_graphics_46,x:720.8,y:258.1}).wait(1).to({graphics:mask_graphics_47,x:720.5,y:258.1}).wait(1).to({graphics:mask_graphics_48,x:720.5,y:258.1}).wait(1).to({graphics:mask_graphics_49,x:720.5,y:258.1}).wait(1).to({graphics:null,x:0,y:0}).wait(2));
+
+	// Main
+	this.instance = new lib.シンボル4();
+	this.instance.setTransform(480,373,1,1,0,0,0,480,81.5);
 	this.instance._off = true;
 
-	this.timeline.addTween(cjs.Tween.get(this.instance).wait(1).to({_off:false},0).wait(1).to({alpha:0.034},0).wait(1).to({alpha:0.069},0).wait(1).to({alpha:0.103},0).wait(1).to({alpha:0.138},0).wait(1).to({alpha:0.172},0).wait(1).to({alpha:0.207},0).wait(1).to({alpha:0.241},0).wait(1).to({alpha:0.276},0).wait(1).to({alpha:0.31},0).wait(1).to({alpha:0.345},0).wait(1).to({alpha:0.379},0).wait(1).to({alpha:0.414},0).wait(1).to({alpha:0.448},0).wait(1).to({alpha:0.483},0).wait(1).to({alpha:0.517},0).wait(1).to({alpha:0.552},0).wait(1).to({alpha:0.586},0).wait(1).to({alpha:0.621},0).wait(1).to({alpha:0.655},0).wait(1).to({alpha:0.69},0).wait(1).to({alpha:0.724},0).wait(1).to({alpha:0.759},0).wait(1).to({alpha:0.793},0).wait(1).to({alpha:0.828},0).wait(1).to({alpha:0.862},0).wait(1).to({alpha:0.897},0).wait(1).to({alpha:0.931},0).wait(1).to({alpha:0.966},0).wait(1).to({alpha:1},0).to({_off:true},1).wait(2));
+	this.instance.mask = mask;
+
+	this.timeline.addTween(cjs.Tween.get(this.instance).wait(39).to({_off:false},0).wait(10).to({_off:true},1).wait(2));
+
+	// CoverAnimate
+	this.instance_1 = new lib.シンボル2();
+	this.instance_1.setTransform(480,270,1,1,0,0,0,480,270);
+	this.instance_1.alpha = 0;
+	this.instance_1._off = true;
+
+	this.timeline.addTween(cjs.Tween.get(this.instance_1).wait(1).to({_off:false},0).wait(1).to({alpha:0.034},0).wait(1).to({alpha:0.069},0).wait(1).to({alpha:0.103},0).wait(1).to({alpha:0.138},0).wait(1).to({alpha:0.172},0).wait(1).to({alpha:0.207},0).wait(1).to({alpha:0.241},0).wait(1).to({alpha:0.276},0).wait(1).to({alpha:0.31},0).wait(1).to({alpha:0.345},0).wait(1).to({alpha:0.379},0).wait(1).to({alpha:0.414},0).wait(1).to({alpha:0.448},0).wait(1).to({alpha:0.483},0).wait(1).to({alpha:0.517},0).wait(1).to({alpha:0.552},0).wait(1).to({alpha:0.586},0).wait(1).to({alpha:0.621},0).wait(1).to({alpha:0.655},0).wait(1).to({alpha:0.69},0).wait(1).to({alpha:0.724},0).wait(1).to({alpha:0.759},0).wait(1).to({alpha:0.793},0).wait(1).to({alpha:0.828},0).wait(1).to({alpha:0.862},0).wait(1).to({alpha:0.897},0).wait(1).to({alpha:0.931},0).wait(1).to({alpha:0.966},0).wait(1).to({alpha:1},0).wait(2).to({alpha:0.944},0).wait(1).to({alpha:0.889},0).wait(1).to({alpha:0.833},0).wait(1).to({alpha:0.778},0).wait(1).to({alpha:0.722},0).wait(1).to({alpha:0.667},0).wait(1).to({alpha:0.611},0).wait(1).to({alpha:0.556},0).wait(1).to({alpha:0.5},0).wait(1).to({alpha:0.444},0).wait(1).to({alpha:0.389},0).wait(1).to({alpha:0.333},0).wait(1).to({alpha:0.278},0).wait(1).to({alpha:0.222},0).wait(1).to({alpha:0.167},0).wait(1).to({alpha:0.111},0).wait(1).to({alpha:0.056},0).wait(1).to({alpha:0},0).to({_off:true},1).wait(2));
 
 	// Cover
 	this.shape = new cjs.Shape();
@@ -291,21 +341,27 @@ if (loop == null) { loop = false; }	this.initialize(mode,startPosition,loop,{ope
 	this.shape.setTransform(480,270);
 	this.shape._off = true;
 
-	this.timeline.addTween(cjs.Tween.get(this.shape).wait(1).to({_off:false},0).to({_off:true},30).wait(2));
+	this.timeline.addTween(cjs.Tween.get(this.shape).wait(1).to({_off:false},0).to({_off:true},30).wait(21));
 
 	// Main
 	this.opening = new lib.Opening();
 	this.opening.setTransform(581,270);
 
-	this.instance_1 = new lib.youtypingmodern01();
+	this.instance_2 = new lib.mideshi();
 
-	this.instance_2 = new lib.OpeningLight();
-	this.instance_2.setTransform(480,268,1,1,0,0,0,0,5);
+	this.instance_3 = new lib.notegreen01();
+	this.instance_3.setTransform(459,341.5);
 
-	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.opening}]}).to({state:[{t:this.instance_1}]},31).to({state:[{t:this.instance_2}]},1).wait(1));
+	this.instance_4 = new lib.rane01();
+	this.instance_4.setTransform(0,291.5);
+
+	this.instance_5 = new lib.OpeningLight();
+	this.instance_5.setTransform(480,268,1,1,0,0,0,0,5);
+
+	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.opening}]}).to({state:[{t:this.instance_2}]},31).to({state:[{t:this.instance_2},{t:this.instance_4},{t:this.instance_3}]},19).to({state:[{t:this.instance_5}]},1).wait(1));
 
 }).prototype = p = new cjs.MovieClip();
-p.nominalBounds = new cjs.Rectangle(480,270,960,540);
+p.nominalBounds = new cjs.Rectangle(480,270,1050.3,619.4);
 
 })(lib = lib||{}, images = images||{}, createjs = createjs||{});
 var lib, images, createjs;

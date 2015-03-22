@@ -1,3 +1,5 @@
+var jade = require('jade');
+
 module.exports = function (grunt) {
 	grunt.initConfig({
 		watch: {
@@ -20,9 +22,24 @@ module.exports = function (grunt) {
 				],
 				dest: '../../../Documents/GitHub/YouTyping-Modern/'
 			}
-		}
+		},
+		jade: {
+			build: {
+				options: {
+					data: {
+						renderFile: jade.renderFile,
+					},
+				},
+				files: {
+					'index.html': 'index.jade',
+				},
+			},
+		},
 	});
 
-	grunt.loadNpmTasks('../../../../node_modules/grunt-contrib-watch');
-	grunt.loadNpmTasks('../../../../node_modules/grunt-contrib-copy');
+	grunt.loadNpmTasks('grunt-contrib-watch');
+	grunt.loadNpmTasks('grunt-contrib-copy');
+	grunt.loadNpmTasks('grunt-contrib-jade');
+
+	grunt.registerTask('default', ['jade']);
 };

@@ -1,0 +1,29 @@
+{
+  "name": "YouTyping-modern",
+  "version": "0.0.0",
+  "description": "YouTyping Modern Skin",
+  "main": "index.html",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hakatashi/YouTyping-Modern.git"
+  },
+  "keywords": [
+    "YouTyping"
+  ],
+  "author": "hakatashi <hakatasiloving@gmail.com> (http://hakatashi.com/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hakatashi/YouTyping-Modern/issues"
+  },
+  "homepage": "https://github.com/hakatashi/YouTyping-Modern",
+  "devDependencies": {
+    "grunt-contrib-copy": "^0.8.0",
+    "grunt-contrib-jade": "^0.14.1",
+    "grunt-contrib-watch": "^0.6.1",
+    "jade": "^1.9.2"
+  }
+}
